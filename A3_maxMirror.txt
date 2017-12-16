@@ -1,0 +1,26 @@
+//Array-3 > maxMirror
+public int maxMirror(int[] nums) {
+  int numsLen = nums.length;
+  int mirrorSize = 0;
+  int maxMirror = 0;
+  
+  for(int i = 0; i < numsLen; i++){
+    int count = 0;
+    mirrorSize = 0;
+    for(int j = numsLen-1; j >= 0; j--){
+      if(nums[i + count] == nums[j]){
+        mirrorSize++;
+        if(mirrorSize > maxMirror){
+          maxMirror = mirrorSize;
+        }
+        if(count < numsLen-i-1){
+          count++;
+        }
+      }
+      else if(nums[i] != nums[j]){
+        mirrorSize = 0;
+      }
+    }
+  }
+  return maxMirror;
+}

@@ -1,0 +1,15 @@
+//Array-3 > countClumps
+public int countClumps(int[] nums) {
+  int count = 0;
+  boolean isClump = false;
+  for(int i = 0; i < nums.length-1; i++){
+    if(nums[i] == nums[i+1] && !isClump){
+      count++;
+      isClump = true;
+    }
+    else if (nums[i] != nums[i+1] && isClump){
+      isClump = false;
+    }
+  }
+  return count;
+}

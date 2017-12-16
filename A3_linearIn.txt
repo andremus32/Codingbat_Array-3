@@ -1,0 +1,24 @@
+//Array-3 > linearIn
+public boolean linearIn(int[] outer, int[] inner) {
+  boolean isInner = false;
+  int count = 0;
+  if(inner.length > 0){
+  for(int i = 0; i < outer.length; i++){
+      if(!isInner && outer[i] == inner[count]){
+        isInner = true;
+        count++;
+      }
+      else if(isInner && count < inner.length && outer[i] == inner[count]){
+        count++;
+      }
+      else if(isInner && count < inner.length && outer[i] != inner[count]){
+        isInner = false;
+      }
+      else if(isInner && count == inner.length){
+        break;
+      }
+    }
+  }
+  else isInner = true;
+  return isInner;
+}
